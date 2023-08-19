@@ -79,5 +79,6 @@ function onError() {
   // setTimeout(() => {
   //   refs.error.classList.add('is-hidden');
   // }, 3000);
-  Notify.failure(`Oops! Something went wrong! Try reloading the page!`);
+  addBreedsNames.innerHTML = '';
+  return Notify.failure(`Oops! Something went wrong! Try reloading the page!`);
 }
