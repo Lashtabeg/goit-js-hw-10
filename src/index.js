@@ -1,5 +1,11 @@
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 import './sass/_example.scss';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+// // If you already have a currenlty running SlimSelect but lost the reference to it.
+// // You can access from the original select element.
+// let el = document.querySelector('#selectElement')
+// el.slim.open() // Or any other options/methods
 
 const refs = {
   select: document.querySelector('.breed-select'),
@@ -7,6 +13,10 @@ const refs = {
   div: document.querySelector('.cat-info'),
   wrapper: document.querySelector('.wrapper'),
 };
+
+// new SlimSelect({
+//   select: '.breed-select',
+// });
 
 refs.select.addEventListener('change', addCard);
 
@@ -20,6 +30,7 @@ function onLoad() {
     .catch(onError)
     .finally(() => {
       refs.wrapper.classList.add('is-hidden');
+      refs.select.classList.remove('is-hidden');
     });
 }
 onLoad();
@@ -66,8 +77,9 @@ function addCard(event) {
 }
 
 function onError() {
-  refs.error.classList.remove('is-hidden');
-  setTimeout(() => {
-    refs.error.classList.add('is-hidden');
-  }, 3000);
+  // refs.error.classList.remove('is-hidden');
+  // setTimeout(() => {
+  //   refs.error.classList.add('is-hidden');
+  // }, 3000);
+  Notify.failure(`Oops! Something went wrong! Try reloading the page!`);
 }

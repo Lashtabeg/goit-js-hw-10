@@ -12,8 +12,17 @@ img{
 }
 .card {display: flex;
   gap:16px;
-
 }
+
+.breed-select{
+  display: block;
+}
+
+
+.breed-select.is-hidden{
+  display: none;
+}
+
 .box-img {
   width: 50%;
   
@@ -26,12 +35,12 @@ font-weight: bold;
 .descrition {font-size: 16px;
 }
 
-.error{
-  color:red;
-}
-.error.is-hidden {
-display: none;
-}
+// .error{
+//   color:red;
+// }
+// .error.is-hidden {
+// display: none;
+// }
 
 .loader {
   width: 48px;
