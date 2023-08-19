@@ -75,10 +75,6 @@ function addCard(event) {
 }
 
 function onError() {
-  // refs.error.classList.remove('is-hidden');
-  // setTimeout(() => {
-  //   refs.error.classList.add('is-hidden');
-  // }, 3000);
-  addBreedsNames.innerHTML = '';
+  refs.div.innerHTML = '';
   return Notify.failure(`Oops! Something went wrong! Try reloading the page!`);
 }
