@@ -1,11 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 import './sass/_example.scss';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
-// // If you already have a currenlty running SlimSelect but lost the reference to it.
-// // You can access from the original select element.
-// let el = document.querySelector('#selectElement')
-// el.slim.open() // Or any other options/methods
+import SlimSelect from 'slim-select';
 
 const refs = {
   select: document.querySelector('.breed-select'),
@@ -13,10 +9,6 @@ const refs = {
   div: document.querySelector('.cat-info'),
   wrapper: document.querySelector('.wrapper'),
 };
-
-// new SlimSelect({
-//   select: '.breed-select',
-// });
 
 refs.select.addEventListener('change', addCard);
 
@@ -26,6 +18,12 @@ function onLoad() {
     .then(data => {
       const selectList = createMarkup(data);
       addBreedsNames(selectList, refs.select);
+      new SlimSelect({
+        select: refs.select,
+        settings: {
+          data: data,
+        },
+      });
     })
     .catch(onError)
     .finally(() => {
